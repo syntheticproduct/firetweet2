@@ -1,6 +1,6 @@
 const tweetsController = {
   grabTweets(req, res) {
-    console.log('grabbing them tweets');
+    console.log(req.query.search);
   },
 };
 
