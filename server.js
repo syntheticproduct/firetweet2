@@ -5,7 +5,7 @@ const path = require('path');
 
 const PORT = 3000;
 
-const tweetsController = require('./tweetsController');
+// const tweetsController = require('./tweetsController');
 
 const app = express();
 
@@ -21,12 +21,12 @@ app.get('/', (req, res) => {
   res.status(200).send('FireTweet Home');
 });
 
-app.get('/search', tweetsController.grabTweets);
+// app.get('/search', tweetsController.grabTweets);
 
-// app.get('/search', (req, res) => {
-//   console.log(req.query.search);
-//   res.status(200).sendFile(path.join(`${__dirname}/client/search.html`));
-// });
+app.get('/search', (req, res) => {
+  console.log(req.query);
+  res.status(200).sendFile(path.join(`${__dirname}/client/search.html`));
+});
 
 // app.post('/search/:id', (req, res) => {
 //   res.status(200).send(`FireTweet Search for ${req.params.id}`);
