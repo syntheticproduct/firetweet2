@@ -11,7 +11,7 @@ const app = express();
 
 mongoose.connect('mongodb://admin:pass1234@ds131313.mlab.com:31313/tweets');
 mongoose.connection.once('open', () => {
-  console.log('Connected to Database');
+  console.log('Connected to MongoDB');
 });
 
 app.use(bodyParser.json());
