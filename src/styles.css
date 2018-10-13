@@ -1,10 +1,32 @@
-#main-container {
-  width: 80%;
-  height: 200px;
-  background: gold;
+input[type="submit"] {
   margin: 0 auto;
 }
 
+#main-container {
+  background: gold;
+  border-radius: 5px;
+  height: 70vh;
+  margin: 0 auto;
+  width: 80%;
+}
+
+h1 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3em;
+  text-align: center;
+  margin: 0.5em auto;
+  padding-top: 0.5em;
+}
+
+h3 {
+  text-align: center;
+}
+
+label, .input-box {
+  margin-left: 15%;
+  margin-bottom: 5%;
+}
+
 .input-box {
-  width: 60%;
+  width: 70%;
 }
