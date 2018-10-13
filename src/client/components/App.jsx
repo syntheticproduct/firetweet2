@@ -11,15 +11,15 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    fetch('http://localhost:3000/tweets')
-      .then((data) => {
-        console.log('********', data);
-        return data.json();
-      })
-      .then((data) => {
-        console.log('$$$$$$$', data)
-        this.setState({ tweets: data });
-      })
+    // fetch('http://localhost:3000/tweets')
+    //   .then((data) => {
+    //     console.log('********', data);
+    //     return data.json();
+    //   })
+    //   .then((data) => {
+    //     console.log('$$$$$$$', data)
+    //     this.setState({ tweets: data });
+    //   })
   }
 
   render() {
