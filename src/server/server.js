@@ -26,7 +26,7 @@ app.get('/search', (req, res) => {
 });
 
 app.get('/tweets', (req, res) => {
-  let obj = JSON.parse(fs.readFileSync('./src/server/sampleTweets.JSON', 'utf8'));  
+  let obj = JSON.parse(fs.readFileSync('./src/server/sampleTweets.JSON', 'utf8'));
   res.status(200).send(JSON.stringify(obj));
 });
 
