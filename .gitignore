@@ -4,3 +4,4 @@ package-lock.json
 dist
 .cache
 .env
+src/alertserver/TwitterConfig.js
