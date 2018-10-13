@@ -28,6 +28,9 @@ class SearchBar extends Component {
     })
       .then((res) => {
         alert('Your alert was successfully created!');
+        document.getElementById('query-box').value = '';
+        document.getElementById('email-box').value = '';
+        document.getElementById('phone-box').value = '';
         res.json();
       })
       .catch(console.error);
@@ -54,17 +57,17 @@ class SearchBar extends Component {
             type="text"
             // value={this.state.email}
             onChange={event => this.setState({ email: event.target.value })}
-            placeholder="Enter keyword to save as an alert (ie...`Venice PD`)"
+            placeholder="Enter email for notifications"
           />
           <br />
           <label>Enter phone #: </label>
           <input
             className="input-box"
-            id="phoneNum-box"
+            id="phone-box"
             type="text"
             // value={this.state.phoneNum}
             onChange={event => this.setState({ phone: event.target.value })}
-            placeholder="Enter keyword to save as an alert (ie...`Venice PD`)"
+            placeholder="Enter phone number for SMS"
           />
           <br />
           <input type="submit" value="Set Alert" />
