@@ -4,6 +4,8 @@ const fs = require('fs');
 const mongoose = require('mongoose');
 const path = require('path');
 
+const alertController = require('./alertController');
+
 const PORT = 3000;
 
 const app = express();
@@ -36,9 +38,32 @@ app.get('/tweets', (req, res) => {
   res.status(200).send(JSON.stringify(obj));
 });
 
-
 app.get('/search/:id', (req, res) => {
   res.status(200).send(`FireTweet Search for ${req.params.id}`);
 });
+
+// Begin routes for alerts
+
+app.get('/alerts',
+  alertController.getAlerts,
+  (req, res) => {
+    res.status(200).json(res.locals);
+  });
+
+app.post('/alert',
+  alertController.postAlert,
+  (req, res) => {
+    res.status(200).json(res.locals);
+  });
+
+app.delete('/alert',
+  alertController.deleteAlert,
+  (req, res) => {
+    res.status(200).json(res.locals);
+  });
+
+
+
+
 
 app.listen(PORT, () => console.log(`Now LISTENING on ${PORT}`));
