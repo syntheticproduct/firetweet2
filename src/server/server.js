@@ -13,6 +13,12 @@ mongoose.connection.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -26,7 +32,7 @@ app.get('/search', (req, res) => {
 });
 
 app.get('/tweets', (req, res) => {
-  let obj = JSON.parse(fs.readFileSync('./src/server/sampleTweets.JSON', 'utf8'));  
+  let obj = JSON.parse(fs.readFileSync('./src/server/sampleTweets.JSON', 'utf8'));
   res.status(200).send(JSON.stringify(obj));
 });
 
