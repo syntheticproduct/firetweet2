@@ -4,3 +4,7 @@ package-lock.json
 dist
 .cache
 .env
+<<<<<<< HEAD
+=======
+src/alertserver/TwitterConfig.js
+>>>>>>> 2c693800935a4237e75d716a6b1e3956ab52b70a

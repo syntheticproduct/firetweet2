@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const mongoose = require('mongoose');
-const path = require('path');
 
 const alertController = require('./alertController');
 
@@ -28,20 +27,7 @@ app.get('/', (req, res) => {
   res.status(200).send('FireTweet Home');
 });
 
-app.get('/alert', (req, res) => {
-  res.status(200).send('FireTweet Alert');
-});
-
-// Begin routes for alerts
-
-app.get('/alerts',
-  alertController.getAlerts,
-  (req, res) => {
-    res.status(200).json(res.locals);
-  });
-
-app.post('/alert',
-  alertController.postAlert,
+alertController.postAlert,
   (req, res) => {
     res.status(200).json(res.locals);
   });
