@@ -7,7 +7,7 @@ const Twitter = require('twitter-node-client').Twitter;
 const twitter = new Twitter(config);
 
 const PORT = 4000;
-const alertInterval = 10000 // milliseconds
+const alertInterval = 5000 // milliseconds
 
 var transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -18,16 +18,15 @@ var transporter = nodemailer.createTransport({
   });
 
 // repeat with the interval of 2 seconds
-runalerts()
+// runalerts()
 
-//let timerId = setInterval(() => runalerts(), alertInterval);
+let timerId = setInterval(() => runalerts(), alertInterval);
 
 function runalerts() {
     //get all alerts
     //run all alerts against twitter
         // search twitter
         // if hit(send email + sms)
-        console.log('hi')
         fetch('http://localhost:3000/alerts')
             .then(res => res.text())
             .then(body => handleAlerts(body));
@@ -35,7 +34,8 @@ function runalerts() {
 
 function handleAlerts(alerts){
     console.log("Handle these alerts:", JSON.stringify(JSON.parse(alerts), null, 2));
-    SearchTwitter('codesmith venice beach')
+    ///////// TO DO - call searchTwitter for each alert!
+    SearchTwitter('codesmith venice beach') /////// HARDCODED for now!
 }
 
 function SearchTwitter(query){
@@ -56,12 +56,13 @@ var sendAlert = function (data) {
             console.log('No tweets found');
             return;
         }
-    let firstTweet = twitterResult["statuses"][0];
+    //let firstTweet = twitterResult["statuses"][0];
     var mailOptions = {
         from: 'firetweetcs24@gmail.com',
+        ////////// TO DO - set to Alert email!!!!!!
         to: 'camille.lambert@gmail.com',
-        subject: 'FireTweet Alert! ' + noTweets + ' tweet(s) found for alert!', //: \'' + firstTweet["search_metadata"]["query"] + '\'',
-        text: 'That was easy!' + '\r\n' +  JSON.stringify(firstTweet, null, 2)
+        subject: 'FireTweet Alert! ' + noTweets + ' tweet(s) found for alert!'
+        text: 'That was easy!' // TOTO add link to Tweet found
     };
 
     transporter.sendMail(mailOptions, function(error, info){
@@ -72,6 +73,7 @@ var sendAlert = function (data) {
         }
       });
       
+    ////////// TO DO - PAUSE the Alert for 24h !!!!!!
 };
 
 
