@@ -27,7 +27,8 @@ app.get('/', (req, res) => {
   res.status(200).send('FireTweet Home');
 });
 
-alertController.postAlert,
+app.post('/alert',
+  alertController.postAlert,
   (req, res) => {
     res.status(200).json(res.locals);
   });
