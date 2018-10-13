@@ -9,9 +9,18 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <input
-          value={this.state.term}
-          onChange={event => this.setState({ term: event.target.value })} />
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          console.log(e.target);
+        }}
+        >
+          <input
+            className="alert"
+            type='text'
+            // value={this.state.term}
+            onChange={event => this.setState({ term: event.target.value })} />
+          <input type="submit" value="Set Alert" />
+        </form>
       </div>
     );
   }

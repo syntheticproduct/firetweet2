@@ -7,9 +7,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tweets: []
-    }
-
+      alerts: []
+    };
   }
   componentDidMount() {
     fetch('http://localhost:3000/tweets')
@@ -25,7 +24,9 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div id="main-container">
+        <h1>FireTweet</h1>
+        <h3>Subscribe to an alert and be notified if it shows up on Twitter</h3>
         <SearchBar />
         {/* <TweetList /> */}
       </div>
